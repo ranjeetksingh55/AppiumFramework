@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.ranjeet.PageObjects.Android.FormPage;
+import org.ranjeet.PageObjects.Android.ProductCatalogue;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -25,11 +26,12 @@ public class eCommerceTc4_HybridApp extends BaseTest {
         formPage.setGender("Female");
         formPage.setCountrySelection("Austria");
         formPage.submitForm();
-        // Dropdown
+        ProductCatalogue productCatalogue = new ProductCatalogue(driver);
+        productCatalogue.addItemToCartBYindex(0);
+        productCatalogue.addItemToCartBYindex(0);
+
         // submit button
-        driver.findElements(By.xpath("//android.widget.TextView[@text='ADD TO CART']")).get(0).click();
-        driver.findElements(By.xpath("//android.widget.TextView[@text='ADD TO CART']")).get(0).click();
-        driver.findElement(By.id("com.androidsample.generalstore:id/appbar_btn_cart")).click();
+        productCatalogue.goToCart();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.attributeContains(driver.findElement(By.id("com.androidsample.generalstore:id/toolbar_title")),
                 "text", "Cart"));

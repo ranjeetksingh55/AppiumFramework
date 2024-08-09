@@ -37,7 +37,7 @@ public class BaseTest {
 		options.setDeviceName("Ranjeet Phone");
 //		options.setApp("//Users//91sqft//eclipse-workspace//Appium//Appium//src//resources//ApiDemos-debug.apk");
 		options.setApp("//Users//91sqft//IdeaProjects//Appium1//src//resources//General-Store.apk");
-//		options.setChromedriverExecutable("/Users/91sqft/Desktop/Driver/chromedriver");
+		options.setChromedriverExecutable("/Users/91sqft/Desktop/Driver/chromedriver");
 //		options.setCapability("browserName", "Chrome");
 		// Initialize the Android driver
 
