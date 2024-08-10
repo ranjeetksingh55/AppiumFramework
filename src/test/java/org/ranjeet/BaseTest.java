@@ -9,6 +9,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebElement;
+import org.ranjeet.PageObjects.Android.FormPage;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -21,6 +22,7 @@ import io.appium.java_client.service.local.AppiumServiceBuilder;
 
 public class BaseTest {
 	public AndroidDriver driver;
+	public FormPage formPage;
 	public AppiumDriverLocalService service;
 
 	@BeforeClass
@@ -43,6 +45,8 @@ public class BaseTest {
 
 		driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		 formPage = new FormPage(driver);
+
 	}
 
 	public void LongPressAction(WebElement ele) {

@@ -34,7 +34,7 @@ public class FormPage extends AndroidActions {
 
 
     @AndroidFindBy(id = "com.androidsample.generalstore:id/btnLetsShop")
-    public WebElement shopButton;
+    private WebElement shopButton;
 
 
     public void setNameField(String name) {
@@ -55,9 +55,10 @@ public class FormPage extends AndroidActions {
         driver.findElement(By.xpath("//android.widget.TextView[@resource-id=\"android:id/text1\" and @text=\"" + countryName + "\"]")).click();
 
     }
-    public void submitForm()
-    {
+
+    public ProductCatalogue submitForm() {
         shopButton.click();
+        return new ProductCatalogue(driver);
     }
 }
 
