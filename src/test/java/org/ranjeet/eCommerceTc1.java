@@ -1,11 +1,20 @@
 package org.ranjeet;
 
+import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.Activity;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class eCommerceTc1 extends AndroidBaseTest {
+    @BeforeMethod
+    public void preSetup() {
+        ((JavascriptExecutor) driver).executeScript("mobile: " +
+                "startActivity", ImmutableMap.of("intent", "com.androidsample.generalstore/com.androidsample.generalstore.MainActivity"));
+    }
 
     // Test Strategy
     @Test
