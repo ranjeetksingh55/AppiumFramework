@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test name="AppiumFrameworkDesign Tests" verbose="2" preserve-order="true">
+        <classes>
+            <class name="org.ranjeet.eCommerceTc4_HybridApp"/>
+        </classes>
+    </test>
+    <test name="Error Validation Tests" verbose="2" preserve-order="true">
+        <classes>
+            <class name="org.ranjeet.eCommerceTc1"/>
+        </classes>
+    </test>
+    <test name="Ios Tests" verbose="2" preserve-order="true">
+        <classes>
+            <class name="org.ranjeet.Ios_Basics"/>
+        </classes>
+    </test>
+</suite>
