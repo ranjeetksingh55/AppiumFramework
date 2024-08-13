@@ -154,4 +154,5 @@ public class CartPage extends AndroidActions {
         checkbox.click(); // Perform the first click on the checkbox
         proceed.click(); // Click the proceed button to submit the order
     }
+
 }
