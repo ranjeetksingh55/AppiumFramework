@@ -3,6 +3,7 @@ package org.ranjeet;
 import org.ranjeet.PageObjects.Android.ProductCatalogue;
 import org.ranjeet.PageObjects.Android.CartPage;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class eCommerceTc4_HybridApp extends AndroidBaseTest {
@@ -30,20 +31,18 @@ public class eCommerceTc4_HybridApp extends AndroidBaseTest {
         Thread.sleep(3000);
 
     }
+
+    @DataProvider
+    public Object[][] formData() {
+        return new Object[][]{
+                {"Ranjeet Kumar Singh", "Female", "Austria"},
+                {"", "Male", "India"},
+                {"John Doe", "Female", "United States"}
+        };
+    }
 }
 
-        // Hybrid - Google page
-//        Set<String> contexts = driver.getContextHandles();
-//        for (String contextName : contexts){
-//            System.out.println(contextName);
-//        }
-//
-//        driver.context("WEBVIEW_com.androidsample.generalstore");
-//        driver.findElement(By.name("q")).sendKeys("rahul shetty academy");
-//        driver.findElement(By.name("q")).sendKeys(Keys.ENTER);
-//        driver.pressKey(new KeyEvent(AndroidKey.BACK));
-//        driver.context("NATIVE_APP");
-//    }
+
 
 
 

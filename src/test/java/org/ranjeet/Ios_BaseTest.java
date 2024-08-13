@@ -51,6 +51,7 @@ public class Ios_BaseTest {
 		if (service != null) {
 			// Stop the Appium server
 			service.stop();
+
 		}
 	}
 }
