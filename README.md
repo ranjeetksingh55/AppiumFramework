@@ -1,5 +1,6 @@
 # AppiumFramework
-Welcome to the Appium Framework! 🚀 This is your go-to solution for automating mobile app testing across Android and iOS. Designed with flexibility and scalability in mind, this framework helps you create robust, maintainable test suites that fit seamlessly into your development pipeline.
+Welcome to the Appium Framework! 🚀 This is your go-to solution for automating mobile app testing across Android and iOS.
+Designed with flexibility and scalability in mind, this framework helps you create robust, maintainable test suites that fit seamlessly into your development pipeline.
 
 🌟 Features
 Cross-Platform Testing: Supports both Android and iOS.
