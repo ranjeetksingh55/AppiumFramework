@@ -8,11 +8,11 @@ import org.testng.annotations.Test;
 
 public class eCommerceTc4_HybridApp extends AndroidBaseTest {
 
-    @Test
-    public void FillForm() throws InterruptedException {
-        formPage.setNameField("Ranjeet Kumar Singh");
-        formPage.setGender("Female");
-        formPage.setCountrySelection("Austria");
+    @Test(dataProvider = "formData")
+    public void FillForm(String name, String gender, String country) throws InterruptedException {
+        formPage.setNameField(name);
+        formPage.setGender(gender);
+        formPage.setCountrySelection(country);
         ProductCatalogue productCatalogue = formPage.submitForm();
         productCatalogue.addItemToCartBYindex(0);
         productCatalogue.addItemToCartBYindex(0);
@@ -36,8 +36,6 @@ public class eCommerceTc4_HybridApp extends AndroidBaseTest {
     public Object[][] formData() {
         return new Object[][]{
                 {"Ranjeet Kumar Singh", "Female", "Austria"},
-                {"", "Male", "India"},
-                {"John Doe", "Female", "United States"}
         };
     }
 }
