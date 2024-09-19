@@ -1,28 +1,22 @@
 
 package org.ranjeet.TestUtils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.time.Duration;
-import java.util.Properties;
-
+import com.google.common.collect.ImmutableMap;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.ranjeet.PageObjects.Android.FormPage;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-
-import com.google.common.collect.ImmutableMap;
-
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.options.UiAutomator2Options;
-import io.appium.java_client.service.local.AppiumDriverLocalService;
-import io.appium.java_client.service.local.AppiumServiceBuilder;
 import utils.AppiumUtils;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.time.Duration;
+import java.util.Properties;
 
 public class AndroidBaseTest extends AppiumUtils {
     public AndroidDriver driver;
@@ -33,7 +27,7 @@ public class AndroidBaseTest extends AppiumUtils {
     public void ConfigureAppium() throws IOException {
         Properties prop = new Properties();
 
-        FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"//src//resources//global.properties");
+        FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"//src//main//java//org//ranjeet//PageObjects//Resources//data.properties");
         prop.load(fis);
         String ipAddress = prop.getProperty("ipAddress");
         String port = prop.getProperty("port");
@@ -43,9 +37,9 @@ public class AndroidBaseTest extends AppiumUtils {
         // Set desired capabilities
 
         UiAutomator2Options options = new UiAutomator2Options();
-        options.setDeviceName("Ranjeet Phone");
+        options.setDeviceName(prop.getProperty("AndroidDeviceName"));
 //		options.setApp("//Users//91sqft//eclipse-workspace//Appium//Appium//src//resources//ApiDemos-debug.apk");
-        options.setApp(System.getProperty("user.dir")+"//src//resources//General-Store.apk");
+        options.setApp(System.getProperty("user.dir")+"//src//test//java//org//ranjeet//resources//General-Store.apk");
         options.setChromedriverExecutable("/Users/91sqft/Desktop/Driver/chromedriver");
 //		options.setCapability("browserName", "Chrome");
         // Initialize the Android driver

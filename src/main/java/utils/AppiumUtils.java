@@ -6,6 +6,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -52,4 +53,9 @@ public abstract class AppiumUtils {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.attributeContains((ele), "text", "Cart"));
     }
+   public void getScreenShot(String testCaseName, AppiumDriver driver) throws IOException {
+    File source = driver.getScreenshotAs(OutputType.FILE);
+    File destinationFile = new File(System.getProperty("user.dir") + "//reports" + testCaseName + ".png");
+    FileUtils.copyFile(source, destinationFile);
+}
 }
