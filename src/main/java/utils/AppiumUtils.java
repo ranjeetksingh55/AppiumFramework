@@ -53,9 +53,12 @@ public abstract class AppiumUtils {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.attributeContains((ele), "text", "Cart"));
     }
-   public void getScreenShot(String testCaseName, AppiumDriver driver) throws IOException {
+   public File getScreenShot(String testCaseName, AppiumDriver driver) throws IOException {
     File source = driver.getScreenshotAs(OutputType.FILE);
     File destinationFile = new File(System.getProperty("user.dir") + "//reports" + testCaseName + ".png");
     FileUtils.copyFile(source, destinationFile);
+    return destinationFile;
+    // 1. capture and place in the folder. 2.extent report pick file and attach the report.
+
 }
 }
